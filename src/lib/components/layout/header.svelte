@@ -15,7 +15,6 @@
 		{ label: 'Trang chủ', href: '/' },
 		{ label: 'Giới thiệu', href: '/gioi-thieu' },
 		{ label: 'Khóa học', href: '/khoa-hoc' },
-		{ label: 'Thi thử', href: '/thi-thu' },
 		{ label: 'Tin tức', href: '/tin-tuc' },
 		{ label: 'Liên hệ', href: '/lien-he' }
 	];

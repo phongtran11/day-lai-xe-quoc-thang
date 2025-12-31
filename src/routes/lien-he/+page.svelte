@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { APP_CONFIG } from '$lib/constants/app';
+	import MapFacade from '$lib/components/ui/map-facade.svelte';
 </script>
 
 <svelte:head>
@@ -114,22 +115,11 @@
 					</div>
 				</div>
 
-				<!-- Bản đồ Google Maps nhúng -->
-				<div
-					class="relative aspect-video w-full overflow-hidden rounded-3xl border-4 border-white shadow-xl"
-				>
-					<iframe
-						src={APP_CONFIG.maps.embedUrl}
-						width="100%"
-						height="100%"
-						style="border:0;"
-						allowfullscreen={true}
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-						title="Google Map"
-						class="grayscale transition-all duration-500 hover:grayscale-0"
-					></iframe>
-				</div>
+				<!-- Bản đồ Google Maps với cơ chế Lazy Load (Facade) -->
+				<MapFacade
+					src={APP_CONFIG.maps.embedUrl}
+					placeholderImage="/images/home/why-choose-us-bg.jpg"
+				/>
 			</div>
 		</div>
 	</div>

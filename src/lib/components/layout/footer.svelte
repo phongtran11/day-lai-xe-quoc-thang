@@ -4,6 +4,7 @@
 	import Logo from './logo.svelte';
 	import FooterSection from './footer-section.svelte';
 	import ContactItem from './contact-item.svelte';
+	import MapFacade from '../ui/map-facade.svelte';
 </script>
 
 <footer class="relative w-full bg-[#1a1a1a] font-sans text-white">
@@ -80,18 +81,12 @@
 		</div>
 
 		<!-- Map Section -->
-		<div class="relative mx-auto my-6 h-[350px] max-w-[1200px]">
-			<iframe
+		<div class="relative mx-auto my-6 max-w-[1200px]">
+			<MapFacade
 				src={APP_CONFIG.maps.embedUrl}
-				width="100%"
-				height="100%"
-				style="border:0;"
-				allowfullscreen={true}
-				loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"
-				title="Google Map"
-				class="grayscale transition-all duration-500 hover:grayscale-0"
-			></iframe>
+				placeholderImage="/images/home/why-choose-us-bg.jpg"
+				class="h-[350px] rounded-none border-none"
+			/>
 		</div>
 	</div>
 
