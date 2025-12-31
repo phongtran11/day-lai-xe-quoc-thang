@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { APP_CONFIG } from '$lib/constants/app';
+</script>
+
 <svelte:head>
 	<title>Liên hệ | Trung tâm Đào tạo Lái xe Quốc Thắng</title>
 </svelte:head>
@@ -60,51 +64,71 @@
 			<div class="space-y-12">
 				<!-- Placeholder: Thông tin liên hệ trực tiếp (Hotline, Email, Địa chỉ) -->
 				<div class="space-y-8">
+					{#each APP_CONFIG.contact.locations as loc}
+						<div class="flex items-start gap-6">
+							<div
+								class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-xl text-primary"
+							>
+								📍
+							</div>
+							<div>
+								<h3 class="mb-2 text-xl font-bold">{loc.label}</h3>
+								<p class="leading-relaxed text-slate-600">
+									{loc.address}
+								</p>
+							</div>
+						</div>
+					{/each}
+
 					<div class="flex items-start gap-6">
 						<div
-							class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-xl text-primary"
-						>
-							📍
-						</div>
-						<div>
-							<h3 class="mb-2 text-xl font-bold">Văn phòng chính</h3>
-							<p class="leading-relaxed text-slate-600">
-								123 Đường Số 1, Phường Tân Quy, Quận 7, TP. Hồ Chí Minh
-							</p>
-						</div>
-					</div>
-					<div class="flex items-start gap-6">
-						<div
-							class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-xl text-primary"
+							class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-xl text-primary"
 						>
 							📞
 						</div>
 						<div>
 							<h3 class="mb-2 text-xl font-bold">Hotline tư vấn</h3>
-							<a href="tel:0901234567" class="text-2xl font-black text-primary hover:underline"
-								>0901.234.567</a
+							<a
+								href={APP_CONFIG.contact.hotlineLink}
+								class="text-2xl font-black text-primary hover:underline"
+								>{APP_CONFIG.contact.hotline}</a
 							>
 							<p class="mt-1 text-sm text-slate-500">(Tư vấn miễn phí 24/7 cả ngày lễ)</p>
 						</div>
 					</div>
 					<div class="flex items-start gap-6">
 						<div
-							class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-xl text-primary"
+							class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-xl text-primary"
 						>
 							✉️
 						</div>
 						<div>
-							<h3 class="mb-2 text-xl font-bold">Email</h3>
-							<p class="text-slate-600">daotao@quocthang.edu.vn</p>
+							<h3 class="mb-2 text-xl font-bold">Website</h3>
+							<a
+								href={APP_CONFIG.contact.websiteLink}
+								target="_blank"
+								class="text-slate-600 transition-colors hover:text-primary"
+								>{APP_CONFIG.contact.website}</a
+							>
 						</div>
 					</div>
 				</div>
 
-				<!-- Placeholder: Bản đồ Google Maps nhúng cho các cơ sở -->
+				<!-- Bản đồ Google Maps nhúng -->
 				<div
-					class="flex aspect-video w-full items-center justify-center overflow-hidden rounded-3xl border-4 border-white bg-slate-200 font-bold text-slate-400 shadow-inner"
+					class="relative aspect-video w-full overflow-hidden rounded-3xl border-4 border-white shadow-xl"
 				>
-					Google Maps Placeholder
+					<iframe
+						src={APP_CONFIG.maps.embedUrl}
+						width="100%"
+						height="100%"
+						style="border:0;"
+						allowfullscreen={true}
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+						title="Google Map"
+						class="grayscale transition-all duration-500 hover:grayscale-0"
+					></iframe>
 				</div>
 			</div>
 		</div>
