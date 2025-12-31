@@ -11,8 +11,8 @@ export const APP_CONFIG = {
 	contact: {
 		hotline: '0944 117 414',
 		hotlineLink: 'tel:0944117414',
-		website: 'daylaixelongan.vn',
-		websiteLink: 'https://daylaixelongan.vn',
+		website: 'day-lai-xe-quoc-thang.vercel.app',
+		websiteLink: 'https://day-lai-xe-quoc-thang.vercel.app',
 		locations: [
 			{
 				label: 'Cơ sở 1',
@@ -45,6 +45,10 @@ export const APP_CONFIG = {
 		subtitle: 'Đức Hòa, Long An'
 	},
 	background: {
-		footer: '/images/footer-bg-v1.webp'
+		footer: {
+			small: '/images/footer/footer-bg-small-v1.webp',
+			medium: '/images/footer/footer-bg-medium-v1.webp',
+			large: '/images/footer/footer-bg-large-v1.webp'
+		}
 	}
 };

@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { APP_CONFIG } from '$lib/constants/app';
 	import MapFacade from '$lib/components/ui/map-facade.svelte';
+	import Seo from '$lib/components/common/seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Liên hệ | Trung tâm Đào tạo Lái xe Quốc Thắng</title>
-</svelte:head>
+<Seo title="Liên hệ" />
 
 <div class="container mx-auto px-4 py-16">
 	<div class="mx-auto max-w-5xl">

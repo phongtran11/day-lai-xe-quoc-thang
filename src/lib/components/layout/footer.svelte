@@ -5,14 +5,19 @@
 	import FooterSection from './footer-section.svelte';
 	import ContactItem from './contact-item.svelte';
 	import MapFacade from '../ui/map-facade.svelte';
+	import OptimizedImage from '../ui/optimized-image.svelte';
 </script>
 
 <footer class="relative w-full bg-[#1a1a1a] font-sans text-white">
 	<!-- Top Background Section -->
-	<div
-		class="relative min-h-[400px] w-full overflow-hidden bg-cover bg-center pt-20 pb-12"
-		style="background-image: url({APP_CONFIG.background.footer})"
-	>
+	<div class="relative min-h-[400px] w-full overflow-hidden pt-20 pb-12">
+		<OptimizedImage
+			small={APP_CONFIG.background.footer.small}
+			medium={APP_CONFIG.background.footer.medium}
+			large={APP_CONFIG.background.footer.large}
+			alt="Footer Background"
+			class="absolute inset-0 z-0 h-full w-full"
+		/>
 		<!-- Dark Overlay -->
 		<div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
 
@@ -82,11 +87,7 @@
 
 		<!-- Map Section -->
 		<div class="relative mx-auto my-6 max-w-[1200px]">
-			<MapFacade
-				src={APP_CONFIG.maps.embedUrl}
-				placeholderImage="/images/home/why-choose-us-bg.jpg"
-				class="h-[350px] rounded-none border-none"
-			/>
+			<MapFacade src={APP_CONFIG.maps.embedUrl} class="h-[350px] rounded-none border-none" />
 		</div>
 	</div>
 

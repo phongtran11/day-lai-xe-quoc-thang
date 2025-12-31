@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { APP_CONFIG } from '$lib/constants/app';
 	import { cn } from '$lib/utils';
+	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
 
 	const stats = [
 		{ value: '15.000+', label: 'HỌC VIÊN ĐÃ CÓ BẰNG' },
@@ -17,11 +17,12 @@
 >
 	<!-- Background Image -->
 	<div class="absolute inset-0 z-0">
-		<img
-			src="/images/home/why-choose-us-bg-v1.webp"
+		<OptimizedImage
+			small="/images/home/why-choose-us-bg-small-v1.webp"
+			medium="/images/home/why-choose-us-bg-medium-v1.webp"
+			large="/images/home/why-choose-us-bg-large-v1.webp"
 			alt="Vì sao chọn chúng tôi"
 			class="h-full w-full object-cover opacity-30 grayscale"
-			loading="lazy"
 		/>
 		<div class="absolute inset-0 bg-black/60"></div>
 	</div>

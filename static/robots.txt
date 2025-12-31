@@ -1,3 +1,5 @@
 # allow crawling everything by default
 User-agent: *
 Disallow:
+
+Sitemap: https://day-lai-xe-quoc-thang.vercel.app/sitemap.xml

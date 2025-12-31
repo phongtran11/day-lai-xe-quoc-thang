@@ -3,6 +3,7 @@
 	import { cn } from '$lib/utils';
 	import AutoScroll from 'embla-carousel-auto-scroll';
 	import { Quote } from '@lucide/svelte';
+	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
 
 	const testimonials = [
 		{
@@ -10,14 +11,22 @@
 			role: 'Học viên Hạng B2',
 			content:
 				'Thầy hướng dẫn mẹo thi lý thuyết rất dễ nhớ. Cơ sở vật chất thực sự rất tốt so với các trung tâm khác mà tôi từng tham khảo.',
-			image: '/images/testimonials/vn-man-1-v1.webp'
+			images: {
+				small: '/images/testimonials/vn-man-1-small-v1.webp',
+				medium: '/images/testimonials/vn-man-1-medium-v1.webp',
+				large: '/images/testimonials/vn-man-1-large-v1.webp'
+			}
 		},
 		{
 			name: 'Lê Minh Tuấn',
 			role: 'Học viên Hạng C',
 			content:
 				'Lịch học cực kỳ linh hoạt, phù hợp với người đi làm như tôi. Cảm ơn trung tâm đã hỗ trợ hồ sơ nhanh chóng, đi học ngay.',
-			image: '/images/testimonials/vn-man-2-v1.webp'
+			images: {
+				small: '/images/testimonials/vn-man-2-small-v1.webp',
+				medium: '/images/testimonials/vn-man-2-medium-v1.webp',
+				large: '/images/testimonials/vn-man-2-large-v1.webp'
+			}
 		},
 
 		{
@@ -25,21 +34,33 @@
 			role: 'Học viên Hạng B1',
 			content:
 				'Trải nghiệm tuyệt vời! Sân tập rộng rãi, giống hệt sân thi sát hạch nên lúc đi thi thật mình không hề bị bỡ ngỡ.',
-			image: '/images/testimonials/vn-man-3-v1.webp'
+			images: {
+				small: '/images/testimonials/vn-man-3-small-v1.webp',
+				medium: '/images/testimonials/vn-man-3-medium-v1.webp',
+				large: '/images/testimonials/vn-man-3-large-v1.webp'
+			}
 		},
 		{
 			name: 'Nguyễn Thị Hoa',
 			role: 'Học viên Hạng B1',
 			content:
 				'Dạy rất nhiệt tình, xe mới, máy lạnh mát rượi. Tôi đã thi đậu ngay lần đầu tiên nhờ sự hướng dẫn tận tâm của các thầy tại Quốc Thắng.',
-			image: '/images/testimonials/vn-woman-1-v1.webp'
+			images: {
+				small: '/images/testimonials/vn-woman-1-small-v1.webp',
+				medium: '/images/testimonials/vn-woman-1-medium-v1.webp',
+				large: '/images/testimonials/vn-woman-1-large-v1.webp'
+			}
 		},
 		{
 			name: 'Phạm Thanh Thủy',
 			role: 'Học viên Hạng B2',
 			content:
 				'Học phí minh bạch, không phát sinh chi phí ẩn. Xe tập lái đời mới chạy rất êm, giúp mình tự tin hơn khi cầm lái.',
-			image: '/images/testimonials/vn-woman-2-v1.webp'
+			images: {
+				small: '/images/testimonials/vn-woman-2-small-v1.webp',
+				medium: '/images/testimonials/vn-woman-2-medium-v1.webp',
+				large: '/images/testimonials/vn-woman-2-large-v1.webp'
+			}
 		}
 	];
 </script>
@@ -78,11 +99,12 @@
 								<div
 									class="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-primary/20"
 								>
-									<img
-										src={item.image}
+									<OptimizedImage
+										small={item.images.small}
+										medium={item.images.medium}
+										large={item.images.large}
 										alt={item.name}
-										class="h-full w-full transform-gpu object-cover"
-										loading="lazy"
+										class="transform-gpu"
 									/>
 								</div>
 								<div>

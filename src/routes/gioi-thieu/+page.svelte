@@ -1,6 +1,10 @@
-<svelte:head>
-	<title>Giới thiệu | Trung tâm Đào tạo Lái xe Quốc Thắng</title>
-</svelte:head>
+<script lang="ts">
+	import { APP_CONFIG } from '$lib/constants/app';
+	import MapFacade from '$lib/components/ui/map-facade.svelte';
+	import Seo from '$lib/components/common/seo.svelte';
+</script>
+
+<Seo title="Giới thiệu" />
 
 <div class="container mx-auto px-4 py-12">
 	<h1 class="mb-8 text-4xl font-bold">Giới thiệu về Trung tâm Quốc Thắng</h1>

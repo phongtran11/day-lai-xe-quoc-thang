@@ -5,11 +5,13 @@
 	import { cn } from '$lib/utils';
 	import Autoplay from 'embla-carousel-autoplay';
 	import type { CarouselAPI } from '$lib/components/ui/carousel/context';
+	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
 
 	const slides = [
 		{
-			image: '/images/hero/slider-1-v1.webp',
-			mobileImage: '/images/hero/slider-1-sp-v1.webp',
+			small: '/images/hero/slider-1-small-v1.webp',
+			medium: '/images/hero/slider-1-medium-v1.webp',
+			large: '/images/hero/slider-1-large-v1.webp',
 			title: 'Đào Tạo Lái Xe Chuyên Nghiệp',
 			description:
 				'Hỗ trợ học viên từ con số 0 đến khi nhận bằng. Cam kết tỉ lệ đậu cao nhất khu vực.',
@@ -17,16 +19,18 @@
 			href: '/khoa-hoc'
 		},
 		{
-			image: '/images/hero/slider-2-v1.webp',
-			mobileImage: '/images/hero/slider-2-sp-v1.webp',
+			small: '/images/hero/slider-2-small-v1.webp',
+			medium: '/images/hero/slider-2-medium-v1.webp',
+			large: '/images/hero/slider-2-large-v1.webp',
 			title: 'Giảng Viên Tận Tâm - Xe Đời Mới',
 			description: 'Học thực hành 1 kèm 1 trên các dòng xe đời mới, máy lạnh mát rượi.',
 			cta: 'Đăng ký ngay',
 			href: '/lien-he'
 		},
 		{
-			image: '/images/hero/slider-3-v1.webp',
-			mobileImage: '/images/hero/slider-3-sp-v1.webp',
+			small: '/images/hero/slider-3-small-v1.webp',
+			medium: '/images/hero/slider-3-medium-v1.webp',
+			large: '/images/hero/slider-3-large-v1.webp',
 			title: 'Thủ Tục Nhanh Gọn - Học Phí Trả Góp',
 			description: 'Hỗ trợ trả góp học phí 0%. Hồ sơ đơn giản, đi học ngay sau khi đăng ký.',
 			cta: 'Tư vấn miễn phí',
@@ -71,17 +75,16 @@
 				<Carousel.Item class="relative h-[550px] w-full md:h-[650px]">
 					<!-- Background Image with Ken Burns effect -->
 					<div class="absolute inset-0 z-0 overflow-hidden">
-						<picture>
-							<source media="(max-width: 768px)" srcset={slide.mobileImage} />
-							<img
-								src={slide.image}
-								alt={slide.title}
-								loading={i === 0 ? 'eager' : 'lazy'}
-								fetchpriority={i === 0 ? 'high' : 'auto'}
-								class="h-full w-full object-cover opacity-60 transition-transform duration-10000 ease-linear"
-								style="transform: scale({selectedIndex === i ? '1.15' : '1'})"
-							/>
-						</picture>
+						<OptimizedImage
+							small={slide.small}
+							medium={slide.medium}
+							large={slide.large}
+							alt={slide.title}
+							loading={i === 0 ? 'eager' : 'lazy'}
+							fetchpriority={i === 0 ? 'high' : 'auto'}
+							class="h-full w-full object-cover opacity-60 transition-transform duration-10000 ease-linear"
+							style="transform: scale({selectedIndex === i ? '1.15' : '1'})"
+						/>
 						<div
 							class="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/80 md:bg-linear-to-r md:from-black/90 md:via-black/50 md:to-transparent"
 						></div>

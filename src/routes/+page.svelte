@@ -3,16 +3,14 @@
 	import WhyChooseUs from '$lib/components/home/why-choose-us.svelte';
 	import Highlights from '$lib/components/home/highlights.svelte';
 	import TestimonialsSlider from '$lib/components/home/testimonials-slider.svelte';
+	import Seo from '$lib/components/common/seo.svelte';
 	import { cn } from '$lib/utils';
 </script>
 
-<svelte:head>
-	<title>Trang chủ | Trung tâm Đào tạo Lái xe Quốc Thắng</title>
-	<meta
-		name="description"
-		content="Trung tâm Đào tạo Lái xe Quốc Thắng - Cam kết đào tạo chuyên nghiệp, uy tín, tỉ lệ đậu cao."
-	/>
-</svelte:head>
+<Seo
+	title="Trang chủ"
+	description="Trung tâm Đào tạo Lái xe Quốc Thắng - Cam kết đào tạo chuyên nghiệp, uy tín, tỉ lệ đậu cao."
+/>
 
 <HeroSlider />
 
