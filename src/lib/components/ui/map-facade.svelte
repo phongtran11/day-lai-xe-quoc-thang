@@ -32,9 +32,6 @@
 			</div>
 			<div class="text-center">
 				<p class="text-lg font-black tracking-tight text-slate-800 uppercase">NHẤN ĐỂ MỞ BẢN ĐỒ</p>
-				<p class="mt-1 text-xs font-medium text-slate-500">
-					Giúp trang web tải nhanh và bảo mật hơn
-				</p>
 			</div>
 
 			<!-- Subtle pattern background -->

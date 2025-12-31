@@ -18,7 +18,7 @@
 	<!-- Background Image -->
 	<div class="absolute inset-0 z-0">
 		<img
-			src="/images/home/why-choose-us-bg.jpg"
+			src="/images/home/why-choose-us-bg-v1.webp"
 			alt="Vì sao chọn chúng tôi"
 			class="h-full w-full object-cover opacity-30 grayscale"
 			loading="lazy"

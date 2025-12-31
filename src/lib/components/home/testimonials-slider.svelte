@@ -10,14 +10,14 @@
 			role: 'Học viên Hạng B2',
 			content:
 				'Thầy hướng dẫn mẹo thi lý thuyết rất dễ nhớ. Cơ sở vật chất thực sự rất tốt so với các trung tâm khác mà tôi từng tham khảo.',
-			image: '/images/testimonials/vn-man-1.jpg'
+			image: '/images/testimonials/vn-man-1-v1.webp'
 		},
 		{
 			name: 'Lê Minh Tuấn',
 			role: 'Học viên Hạng C',
 			content:
 				'Lịch học cực kỳ linh hoạt, phù hợp với người đi làm như tôi. Cảm ơn trung tâm đã hỗ trợ hồ sơ nhanh chóng, đi học ngay.',
-			image: '/images/testimonials/vn-man-2.jpg'
+			image: '/images/testimonials/vn-man-2-v1.webp'
 		},
 
 		{
@@ -25,21 +25,21 @@
 			role: 'Học viên Hạng B1',
 			content:
 				'Trải nghiệm tuyệt vời! Sân tập rộng rãi, giống hệt sân thi sát hạch nên lúc đi thi thật mình không hề bị bỡ ngỡ.',
-			image: '/images/testimonials/vn-man-3.jpg'
+			image: '/images/testimonials/vn-man-3-v1.webp'
 		},
 		{
 			name: 'Nguyễn Thị Hoa',
 			role: 'Học viên Hạng B1',
 			content:
 				'Dạy rất nhiệt tình, xe mới, máy lạnh mát rượi. Tôi đã thi đậu ngay lần đầu tiên nhờ sự hướng dẫn tận tâm của các thầy tại Quốc Thắng.',
-			image: '/images/testimonials/vn-woman-1.jpg'
+			image: '/images/testimonials/vn-woman-1-v1.webp'
 		},
 		{
 			name: 'Phạm Thanh Thủy',
 			role: 'Học viên Hạng B2',
 			content:
 				'Học phí minh bạch, không phát sinh chi phí ẩn. Xe tập lái đời mới chạy rất êm, giúp mình tự tin hơn khi cầm lái.',
-			image: '/images/testimonials/vn-woman-2.jpg'
+			image: '/images/testimonials/vn-woman-2-v1.webp'
 		}
 	];
 </script>

@@ -45,6 +45,6 @@ export const APP_CONFIG = {
 		subtitle: 'Đức Hòa, Long An'
 	},
 	background: {
-		footer: '/images/footer-bg.jpg'
+		footer: '/images/footer-bg-v1.webp'
 	}
 };

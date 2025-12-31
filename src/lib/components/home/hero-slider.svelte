@@ -8,7 +8,8 @@
 
 	const slides = [
 		{
-			image: '/images/hero/slider-1.jpg',
+			image: '/images/hero/slider-1-v1.webp',
+			mobileImage: '/images/hero/slider-1-sp-v1.webp',
 			title: 'Đào Tạo Lái Xe Chuyên Nghiệp',
 			description:
 				'Hỗ trợ học viên từ con số 0 đến khi nhận bằng. Cam kết tỉ lệ đậu cao nhất khu vực.',
@@ -16,14 +17,16 @@
 			href: '/khoa-hoc'
 		},
 		{
-			image: '/images/hero/slider-2.jpg',
+			image: '/images/hero/slider-2-v1.webp',
+			mobileImage: '/images/hero/slider-2-sp-v1.webp',
 			title: 'Giảng Viên Tận Tâm - Xe Đời Mới',
 			description: 'Học thực hành 1 kèm 1 trên các dòng xe đời mới, máy lạnh mát rượi.',
 			cta: 'Đăng ký ngay',
 			href: '/lien-he'
 		},
 		{
-			image: '/images/hero/slider-3.jpg',
+			image: '/images/hero/slider-3-v1.webp',
+			mobileImage: '/images/hero/slider-3-sp-v1.webp',
 			title: 'Thủ Tục Nhanh Gọn - Học Phí Trả Góp',
 			description: 'Hỗ trợ trả góp học phí 0%. Hồ sơ đơn giản, đi học ngay sau khi đăng ký.',
 			cta: 'Tư vấn miễn phí',
@@ -65,28 +68,31 @@
 	>
 		<Carousel.Content>
 			{#each slides as slide, i}
-				<Carousel.Item class="relative h-[450px] w-full md:h-[650px]">
+				<Carousel.Item class="relative h-[550px] w-full md:h-[650px]">
 					<!-- Background Image with Ken Burns effect -->
 					<div class="absolute inset-0 z-0 overflow-hidden">
-						<img
-							src={slide.image}
-							alt={slide.title}
-							loading={i === 0 ? 'eager' : 'lazy'}
-							fetchpriority={i === 0 ? 'high' : 'auto'}
-							class="h-full w-full object-cover opacity-60 transition-transform duration-10000 ease-linear"
-							style="transform: scale({selectedIndex === i ? '1.15' : '1'})"
-						/>
+						<picture>
+							<source media="(max-width: 768px)" srcset={slide.mobileImage} />
+							<img
+								src={slide.image}
+								alt={slide.title}
+								loading={i === 0 ? 'eager' : 'lazy'}
+								fetchpriority={i === 0 ? 'high' : 'auto'}
+								class="h-full w-full object-cover opacity-60 transition-transform duration-10000 ease-linear"
+								style="transform: scale({selectedIndex === i ? '1.15' : '1'})"
+							/>
+						</picture>
 						<div
-							class="absolute inset-0 bg-linear-to-r from-black/90 via-black/50 to-transparent"
+							class="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/80 md:bg-linear-to-r md:from-black/90 md:via-black/50 md:to-transparent"
 						></div>
 					</div>
 
 					<!-- Content with Staggered Animations -->
 					<div class="relative z-10 container mx-auto flex h-full max-w-[1200px] items-center px-4">
-						<div class="max-w-3xl space-y-6 text-center text-white md:text-left">
+						<div class="w-full max-w-3xl space-y-6 text-center text-white md:text-left">
 							<div class="overflow-hidden">
 								<h2
-									class="text-4xl leading-tight font-black tracking-tight uppercase transition-all duration-700 md:text-7xl"
+									class="will-change-transform-opacity text-3xl leading-tight font-black tracking-tight uppercase transition-all duration-700 md:text-7xl"
 									style="transform: translateY({selectedIndex === i
 										? '0'
 										: '100%'}); opacity: {selectedIndex === i ? '1' : '0'}"
@@ -103,7 +109,7 @@
 							</div>
 
 							<p
-								class="max-w-xl text-lg leading-relaxed text-gray-300 transition-all delay-300 duration-700 md:text-xl"
+								class="will-change-transform-opacity mx-auto max-w-xl text-base leading-relaxed text-gray-300 transition-all delay-300 duration-700 md:mx-0 md:text-xl"
 								style="transform: translateY({selectedIndex === i
 									? '0'
 									: '20px'}); opacity: {selectedIndex === i ? '1' : '0'}"
@@ -112,17 +118,23 @@
 							</p>
 
 							<div
-								class="flex flex-wrap justify-center gap-6 pt-6 transition-all delay-500 duration-700 md:justify-start"
+								class="will-change-transform-opacity flex flex-wrap justify-center gap-4 pt-4 transition-all delay-500 duration-700 md:justify-start md:gap-6 md:pt-6"
 								style="transform: translateY({selectedIndex === i
 									? '0'
 									: '20px'}); opacity: {selectedIndex === i ? '1' : '0'}"
 							>
-								<NavButton href={slide.href} label={slide.cta} icon={FilePen} class="scale-110" />
+								<NavButton
+									href={slide.href}
+									label={slide.cta}
+									icon={FilePen}
+									class="scale-105 md:scale-110"
+								/>
 								<a
 									href="/gioi-thieu"
 									class="group flex items-center gap-2 font-bold text-white transition-colors hover:text-primary"
 								>
-									<span class="border-b-2 border-transparent group-hover:border-primary"
+									<span
+										class="border-b-2 border-transparent text-sm group-hover:border-primary md:text-base"
 										>Tìm hiểu thêm</span
 									>
 									<ChevronRight size={20} class="transition-transform group-hover:translate-x-1" />
