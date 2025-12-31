@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { Component } from 'svelte';
 
 	interface Props {
@@ -7,25 +8,42 @@
 		value: string;
 		href?: string;
 		isBold?: boolean;
-		variant?: 'default' | 'footer';
+		variant?: 'default' | 'footer' | 'horizontal';
+		labelClass?: string;
+		iconClass?: string;
+		class?: string;
 	}
 
-	let { icon: Icon, label, value, href, isBold = false, variant = 'default' }: Props = $props();
+	let {
+		icon: Icon,
+		label,
+		value,
+		href,
+		isBold = false,
+		variant = 'default',
+		labelClass,
+		iconClass,
+		class: className
+	}: Props = $props();
 </script>
 
 {#if variant === 'footer'}
-	<li class="group flex items-start gap-3">
+	<li class={cn('group flex items-start gap-3', className)}>
 		<div class="rounded-lg bg-white/10 p-2 transition-colors group-hover:bg-primary/20">
-			<Icon class="h-4 w-4 text-primary" />
+			<Icon class={cn('h-4 w-4 text-primary', iconClass)} />
 		</div>
 		<span class="leading-snug">
 			{#if label}
-				<strong class="mb-1 block text-white">{label}:</strong>
+				<strong class={cn('mb-1 block text-white', labelClass)}>{label}:</strong>
 			{/if}
 			{#if href}
 				<a
 					{href}
-					class="transition-colors hover:text-primary {isBold ? 'font-bold text-white' : ''}"
+					class={cn(
+						'transition-colors hover:text-primary',
+						labelClass,
+						isBold ? 'font-bold text-white' : ''
+					)}
 				>
 					{value}
 				</a>
@@ -34,27 +52,60 @@
 			{/if}
 		</span>
 	</li>
-{:else}
-	<div class="flex flex-col items-end gap-1">
+{:else if variant === 'horizontal'}
+	<div class={cn('flex items-center gap-2', className)}>
 		{#if label}
-			<div class="flex items-center gap-2 text-xs font-medium text-gray-500">
-				<Icon class="h-3.5 w-3.5 text-primary" />
+			<div class={cn('flex items-center gap-2 text-xs font-medium', labelClass)}>
+				<Icon class={cn('h-3.5 w-3.5', iconClass)} />
+				<span>{label}</span>
+			</div>
+		{/if}
+		{#if value && href}
+			<a
+				{href}
+				class={cn(
+					'flex items-center gap-2 font-bold transition-colors hover:opacity-80',
+					labelClass
+				)}
+			>
+				{#if !label}
+					<Icon class={cn('h-4 w-4', iconClass)} />
+				{/if}
+				<span>{value}</span>
+			</a>
+		{:else if value}
+			<div class={cn('flex items-center gap-2 font-medium', labelClass)}>
+				{#if !label}
+					<Icon class={cn('h-4 w-4', iconClass)} />
+				{/if}
+				<span>{value}</span>
+			</div>
+		{/if}
+	</div>
+{:else}
+	<div class={cn('flex flex-col items-end gap-1', className)}>
+		{#if label}
+			<div class={cn('flex items-center gap-2 text-xs font-medium text-gray-500', labelClass)}>
+				<Icon class={cn('h-3.5 w-3.5 text-primary', iconClass)} />
 				<span>{label}</span>
 			</div>
 		{/if}
 		{#if href}
 			<a
 				{href}
-				class="flex items-center gap-2 font-bold text-primary transition-colors hover:text-primary/80"
+				class={cn(
+					'flex items-center gap-2 font-bold text-primary transition-colors hover:text-primary/80',
+					labelClass
+				)}
 			>
 				{#if !label}
-					<Icon class="h-4 w-4 text-primary" />
+					<Icon class={cn('h-4 w-4 text-primary', iconClass)} />
 				{/if}
 				<span>{value}</span>
 			</a>
 		{:else}
-			<div class="flex items-center gap-2 font-medium text-gray-700">
-				<Icon class="h-4 w-4 text-primary" />
+			<div class={cn('flex items-center gap-2 font-medium text-gray-700', labelClass)}>
+				<Icon class={cn('h-4 w-4 text-primary', iconClass)} />
 				<span>{value}</span>
 			</div>
 		{/if}

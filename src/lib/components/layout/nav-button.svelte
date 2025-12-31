@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { Component } from 'svelte';
 
 	interface Props {
@@ -6,9 +7,10 @@
 		label: string;
 		icon?: Component;
 		variant?: 'primary' | 'secondary';
+		class?: string;
 	}
 
-	let { href, label, icon: Icon, variant = 'primary' }: Props = $props();
+	let { href, label, icon: Icon, variant = 'primary', class: className }: Props = $props();
 
 	const baseClass =
 		'group flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-all active:scale-95';
@@ -19,7 +21,7 @@
 	};
 </script>
 
-<a {href} class="{baseClass} {variants[variant]}">
+<a {href} class={cn(baseClass, variants[variant], className)}>
 	{#if Icon}
 		<Icon class="h-4 w-4 transition-transform group-hover:rotate-12" />
 	{/if}
