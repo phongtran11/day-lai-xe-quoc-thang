@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { MapPin, Globe, Phone } from '@lucide/svelte';
 	import { APP_CONFIG } from '$lib/constants/app';
-	import SocialSidebar from './social-sidebar.svelte';
-	import ScrollToTop from './scroll-to-top.svelte';
 	import Logo from './logo.svelte';
 	import FooterSection from './footer-section.svelte';
 	import ContactItem from './contact-item.svelte';
@@ -80,36 +78,28 @@
 				</FooterSection>
 			</div>
 		</div>
-	</div>
 
-	<!-- Map Section -->
-	<div class="relative h-[350px] w-full">
-		<iframe
-			src={APP_CONFIG.maps.embedUrl}
-			width="100%"
-			height="100%"
-			style="border:0;"
-			allowfullscreen={true}
-			loading="lazy"
-			referrerpolicy="no-referrer-when-downgrade"
-			title="Google Map"
-			class="grayscale transition-all duration-500 hover:grayscale-0"
-		></iframe>
-		<!-- Map Info Overlay -->
-		<div
-			class="absolute top-4 left-4 hidden rounded-lg bg-white p-4 text-gray-800 shadow-xl md:block"
-		>
-			<h4 class="text-sm font-bold">{APP_CONFIG.maps.title}</h4>
-			<p class="text-[10px] text-gray-500">{APP_CONFIG.maps.subtitle}</p>
-			<a href="#" class="mt-2 inline-block text-[10px] font-bold text-[#0068FF]"
-				>Xem bản đồ lớn hơn</a
-			>
+		<!-- Map Section -->
+		<div class="relative mx-auto my-6 h-[350px] max-w-[1200px]">
+			<iframe
+				src={APP_CONFIG.maps.embedUrl}
+				width="100%"
+				height="100%"
+				style="border:0;"
+				allowfullscreen={true}
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+				title="Google Map"
+				class="grayscale transition-all duration-500 hover:grayscale-0"
+			></iframe>
 		</div>
 	</div>
 
-	<!-- Social Sidebar -->
-	<SocialSidebar />
-
-	<!-- Scroll to Top -->
-	<ScrollToTop />
+	<!-- Copyright Section -->
+	<div
+		class="flex items-center justify-center border-t border-gray-100 bg-white py-4 text-sm text-gray-500"
+	>
+		© {new Date().getFullYear()}
+		{APP_CONFIG.brand.name}. All rights reserved.
+	</div>
 </footer>
