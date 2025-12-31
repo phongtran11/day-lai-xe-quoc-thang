@@ -81,7 +81,7 @@
 
 				<div class="block">
 					<NavButton
-						href="#register"
+						href="/lien-he"
 						label="Đăng ký"
 						icon={FilePen}
 						class="px-4 py-2 sm:px-5 sm:py-2.5"

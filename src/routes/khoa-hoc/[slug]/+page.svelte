@@ -37,8 +37,10 @@
 				<p class="mb-6 text-slate-600">Để lại thông tin, chúng tôi sẽ liên hệ trong vòng 5 phút.</p>
 
 				<!-- Placeholder: Nút "Đăng ký tư vấn" (Mở form hoặc nhảy đến Zalo/Hotline) -->
-				<button class="mb-3 w-full rounded-lg bg-blue-600 py-3 font-bold text-white"
-					>Đăng ký ngay</button
+				<a
+					href="/lien-he"
+					class="transition-active mb-3 block w-full rounded-lg bg-blue-600 py-3 text-center font-bold text-white active:scale-95"
+					>Đăng ký ngay</a
 				>
 				<button class="w-full rounded-lg border border-green-600 py-3 font-bold text-green-600"
 					>Zalo tư vấn</button

@@ -17,7 +17,7 @@
 			<span>Gọi điện</span>
 		</a>
 		<a
-			href="#register"
+			href="/lien-he"
 			class="transition-active flex flex-[1.5] items-center justify-center gap-2 rounded-xl bg-primary py-3 font-bold text-white shadow-lg shadow-primary/20 active:scale-95"
 		>
 			<FilePen size={18} />
