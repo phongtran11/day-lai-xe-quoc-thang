@@ -1,4 +1,5 @@
 <script lang="ts">
+	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
 	import type { PageData } from './$types';
 
 	const { data }: { data: PageData } = $props();
@@ -15,10 +16,10 @@
 		{#each data.driversCourses as course (course.id)}
 			<div class="overflow-hidden rounded-xl border shadow-sm transition-shadow hover:shadow-md">
 				{#if course.coverImage}
-					<img
+					<OptimizedImage
 						src={course.coverImage}
 						alt={course.coverImageName || course.name}
-						class="h-48 w-full object-cover"
+						class="h-48 w-full"
 					/>
 				{:else}
 					<div class="flex h-48 items-center justify-center bg-slate-200 text-slate-400">
