@@ -76,9 +76,7 @@
 
 			<!-- Quick Info & Action -->
 			<div class="flex items-center gap-2 lg:gap-8">
-				<div class="hidden flex-col items-end gap-1 xl:flex"></div>
-
-				<div class="block">
+				<div class="hidden md:block">
 					<NavButton
 						href="/lien-he"
 						label="Đăng ký"

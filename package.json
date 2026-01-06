@@ -46,6 +46,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
+		"@notionhq/client": "^5.6.0",
 		"@sveltejs/adapter-vercel": "^6.2.0",
 		"embla-carousel-auto-scroll": "^8.6.0",
 		"embla-carousel-autoplay": "^8.6.0"

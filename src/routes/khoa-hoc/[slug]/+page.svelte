@@ -1,7 +1,3 @@
-<script>
-	// export let data; // In case we use load function
-</script>
-
 <svelte:head>
 	<title>Chi tiết Khóa học | Trung tâm Đào tạo Lái xe Quốc Thắng</title>
 </svelte:head>
