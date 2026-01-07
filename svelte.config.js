@@ -5,7 +5,16 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			handleHttpError: ({ path, message }) => {
+				// Ignore errors for Vercel Image Optimization
+				if (path.startsWith('/_vercel/image')) {
+					return;
+				}
+				throw new Error(message);
+			}
+		}
 	}
 };
 
