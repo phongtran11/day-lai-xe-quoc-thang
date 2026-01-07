@@ -26,6 +26,15 @@
 	function closeMobileMenu() {
 		isMobileMenuOpen = false;
 	}
+
+	/**
+	 * Checks if a nav item is active, handling subpaths
+	 */
+	function isActive(href: string) {
+		const pathname = page.url.pathname;
+		if (href === '/') return pathname === '/';
+		return pathname === href || pathname.startsWith(href + '/');
+	}
 </script>
 
 <header class="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
@@ -63,11 +72,15 @@
 							<a
 								href={item.href}
 								class={cn(
-									'text-sm font-bold transition-colors hover:text-primary',
-									page.url.pathname === item.href ? 'text-primary' : 'text-slate-600'
+									'relative py-2 text-sm font-bold transition-colors hover:text-primary',
+									isActive(item.href) ? 'text-primary' : 'text-slate-600'
 								)}
 							>
 								{item.label}
+								{#if isActive(item.href)}
+									<span class="absolute -bottom-1 left-0 h-0.5 w-full bg-primary" aria-hidden="true"
+									></span>
+								{/if}
 							</a>
 						</li>
 					{/each}
@@ -115,7 +128,7 @@
 								href={item.href}
 								class={cn(
 									'block text-lg font-bold transition-colors hover:text-primary',
-									page.url.pathname === item.href ? 'text-primary' : 'text-slate-600'
+									isActive(item.href) ? 'text-primary' : 'text-slate-600'
 								)}
 								onclick={closeMobileMenu}
 							>

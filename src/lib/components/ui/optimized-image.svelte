@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import { cn } from '$lib/utils';
 
 	interface Props {
@@ -28,9 +29,16 @@
 		...restProps
 	}: Props & Record<string, any> = $props();
 
-	// Function to generate Vercel Optimization URL
+	/**
+	 * Processes the source URL to return an optimized image path.
+	 * Returns the original URL in development mode to avoid optimization proxy issues.
+	 */
 	const getOptimizedUrl = (url: string, w: number) => {
 		if (!url) return '';
+
+		// Always return the original URL during local development
+		if (dev) return url;
+
 		if (url.includes('prod-files-secure.s3.us-west-2.amazonaws.com')) {
 			return `/_vercel/image?url=${encodeURIComponent(url)}&w=${w}&q=${quality}`;
 		}

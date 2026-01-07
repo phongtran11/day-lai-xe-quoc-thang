@@ -9,7 +9,7 @@
 	<h1 class="mb-8 text-4xl font-bold text-primary">Giới thiệu</h1>
 
 	<div class="prose max-w-none">
-		<!-- Placeholder: Bài viết giới thiệu về trung tâm Quốc Thắng -->
+		<!-- Introduction content for Quoc Thang Training Center -->
 		<p class="mb-6 text-lg leading-relaxed">
 			{APP_CONFIG.brand.fullName} kính chào quý khách. Chiêu sinh và khai giảng liên tục với thủ tục nhanh
 			gọn các hạng lái xe ô tô B1, B2, C. Nâng dấu các hạng C, D, FC, E. Đặc biệt xe máy hạng A1, A2 mở
@@ -38,7 +38,7 @@
 
 	<section class="mt-12">
 		<h2 class="mb-6 text-2xl font-bold">Cơ sở vật chất & Đội ngũ xe tập</h2>
-		<!-- Placeholder: Hình ảnh cơ sở vật chất, đội ngũ xe tập lái -->
+		<!-- Facility and Driving Fleet visual gallery -->
 		<div class="grid grid-cols-2 gap-4 md:grid-cols-3">
 			<div class="flex aspect-video items-center justify-center rounded bg-slate-200">
 				Hình ảnh sân tập

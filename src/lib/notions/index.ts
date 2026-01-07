@@ -1,4 +1,4 @@
-import { Client, type DatabaseObjectResponse } from '@notionhq/client';
+import { Client, type DatabaseObjectResponse, type BlockObjectResponse } from '@notionhq/client';
 import { NOTION_SECRET, NOTION_DB_ID } from '$env/static/private';
 import type { Course } from './notions.inteface';
 export * from './notions.inteface';
@@ -46,4 +46,27 @@ export const getDriversCourses = async (): Promise<Course[]> => {
 	});
 
 	return response.results.map(mapPageToCourse);
+};
+
+export const getCourseBySlug = async (slug: string): Promise<Course | null> => {
+	const database = await getDatabase();
+	const response = await notion.dataSources.query({
+		data_source_id: database.data_sources[0].id,
+		filter: {
+			property: 'slug',
+			rich_text: {
+				equals: slug
+			}
+		}
+	});
+
+	if (response.results.length === 0) return null;
+	return mapPageToCourse(response.results[0]);
+};
+
+export const getCourseBlocks = async (blockId: string): Promise<BlockObjectResponse[]> => {
+	const response = await notion.blocks.children.list({
+		block_id: blockId
+	});
+	return response.results.filter((block): block is BlockObjectResponse => 'type' in block);
 };
