@@ -1,6 +1,15 @@
-import { getCourseBySlug, getCourseBlocks } from '$lib/notions';
+import { getCourseBySlug, getCourseBlocks, getDriversCourses } from '$lib/notions';
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { EntryGenerator, PageServerLoad } from './$types';
+
+export const entries: EntryGenerator = async () => {
+	const courses = await getDriversCourses();
+	return courses.map((course) => ({
+		slug: course.slug
+	}));
+};
+
+export const prerender = 'auto';
 
 export const config = {
 	isr: {
