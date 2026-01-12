@@ -1,4 +1,4 @@
-import { getCourseBySlug, getCourseBlocks, getCourses } from '$lib/notions';
+import { getCourseBySlug, getNotionBlocks, getCourses } from '$lib/notions';
 import { error } from '@sveltejs/kit';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
@@ -24,7 +24,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		throw error(404, { message: 'Course not found' });
 	}
 
-	const blocks = await getCourseBlocks(course.id);
+	const blocks = await getNotionBlocks(course.id);
 
 	return {
 		course,

@@ -1,4 +1,4 @@
-import { getNewsBySlug, getCourseBlocks, getAllNews } from '$lib/notions';
+import { getNewsBySlug, getNotionBlocks, getAllNews } from '$lib/notions';
 import { error } from '@sveltejs/kit';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
@@ -24,7 +24,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		throw error(404, 'Không tìm thấy bài viết');
 	}
 
-	const blocks = await getCourseBlocks(news.id);
+	const blocks = await getNotionBlocks(news.id);
 
 	return {
 		news,

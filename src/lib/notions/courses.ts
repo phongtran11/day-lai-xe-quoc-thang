@@ -1,9 +1,9 @@
-import { type DataSourceObjectResponse, type BlockObjectResponse } from '@notionhq/client';
-import { NOTION_COURSE_DB_ID } from '$env/static/private';
 import { notion, getDatabase } from './client';
 import { queryAllFromDataSource } from './queries';
 import { mapPageToCourse } from './notions.helper';
 import type { Course, DataSourceQueryParams, PaginatedResponse } from './notions.inteface';
+import { NOTION_COURSE_DB_ID } from '$env/static/private';
+import type { DataSourceObjectResponse } from '@notionhq/client';
 
 export const getCoursesDatabase = () => getDatabase(NOTION_COURSE_DB_ID);
 
@@ -54,11 +54,4 @@ export const getCourseBySlug = async (slug: string): Promise<Course | null> => {
 
 	if (result.length === 0) return null;
 	return mapPageToCourse(result[0]);
-};
-
-export const getCourseBlocks = async (blockId: string): Promise<BlockObjectResponse[]> => {
-	const response = await notion.blocks.children.list({
-		block_id: blockId
-	});
-	return response.results.filter((block): block is BlockObjectResponse => 'type' in block);
 };

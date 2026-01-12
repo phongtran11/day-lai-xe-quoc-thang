@@ -1,4 +1,4 @@
-import { type DataSourceObjectResponse } from '@notionhq/client';
+import { type DataSourceObjectResponse, type BlockObjectResponse } from '@notionhq/client';
 import { notion } from './client';
 import type { DataSourceQueryParams } from './notions.inteface';
 
@@ -22,4 +22,41 @@ export const queryAllFromDataSource = async (
 	} while (cursor && requests < MAX_REQUESTS);
 
 	return results;
+};
+
+export const getNotionBlocks = async (blockId: string): Promise<any[]> => {
+	let results: BlockObjectResponse[] = [];
+	let cursor: string | undefined = undefined;
+
+	do {
+		const response = await notion.blocks.children.list({
+			block_id: blockId,
+			start_cursor: cursor
+		});
+
+		const pageBlocks = response.results.filter(
+			(block): block is BlockObjectResponse => 'type' in block
+		);
+		results = [...results, ...pageBlocks];
+		cursor = response.next_cursor || undefined;
+	} while (cursor);
+
+	// Recursively fetch children for blocks that have them (like tables, columns, etc.)
+	const blocksWithChildren = await Promise.all(
+		results.map(async (block) => {
+			if (block.has_children) {
+				const children = await getNotionBlocks(block.id);
+				return {
+					...block,
+					[block.type]: {
+						...(block as any)[block.type],
+						children
+					}
+				};
+			}
+			return block;
+		})
+	);
+
+	return blocksWithChildren;
 };
