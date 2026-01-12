@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { APP_CONFIG } from '$lib/constants/app';
-	import MapFacade from '$lib/components/ui/map-facade.svelte';
-	import Seo from '$lib/components/common/seo.svelte';
+	import { MapFacade, Seo } from '$lib/components/common';
 </script>
 
 <Seo title="Liên hệ" />
 
-<div class="container mx-auto px-4 py-16">
-	<div class="mx-auto max-w-5xl">
+<div class="container mx-auto max-w-[1200px] px-4 py-16">
+	<div>
 		<h1 class="mb-4 text-center text-4xl font-black">Liên Hệ Với Chúng Tôi</h1>
 		<p class="mb-16 text-center text-lg text-slate-500">
 			Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7. Hãy liên hệ ngay để được tư vấn miễn phí.

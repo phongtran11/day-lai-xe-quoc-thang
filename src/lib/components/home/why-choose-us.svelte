@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
+	import { OptimizedImage } from '$lib/components/common';
 
 	const stats = [
 		{ value: '15.000+', label: 'HỌC VIÊN ĐÃ CÓ BẰNG' },

@@ -5,7 +5,7 @@ export const APP_CONFIG = {
 		name: 'Quốc Thắng',
 		fullName: 'TƯ VẤN ĐÀO TẠO LÁI XE QUỐC THẮNG',
 		description:
-			'Đào tạo lái xe Quốc Thắng kính chào quý khách. Chiêu sinh và khai giảng liên tục với thủ tục nhanh gọn các hạng lái xe ô tô B1, B2, C. Nâng dấu các hạng C, D, FC, E. Đặc biệt xe máy hạng A1, A2 mở khóa thi liên tục.',
+			'Trung tâm Đào tạo lái xe Quốc Thắng chuyên đào tạo và sát hạch các hạng bằng lái xe mô tô (A1, A), ô tô (B, C1, C), xe khách (D1, D2, D) và các hạng kéo rơ-moóc. Chiêu sinh liên tục, thủ tục nhanh gọn, học phí trọn gói theo quy chuẩn mới 2025.',
 		logoText: 'ĐTLX'
 	},
 	contact: {

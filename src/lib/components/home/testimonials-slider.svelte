@@ -1,9 +1,9 @@
 <script lang="ts">
-	import * as Carousel from '$lib/components/ui/carousel';
+	import { Carousel } from '$lib/components/ui';
 	import { cn } from '$lib/utils';
 	import AutoScroll from 'embla-carousel-auto-scroll';
 	import { Quote } from '@lucide/svelte';
-	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
+	import { OptimizedImage } from '$lib/components/common';
 
 	const testimonials = [
 		{

@@ -1,4 +1,7 @@
 <script lang="ts">
+	/**
+	 * Renders JSON-LD structured data for the organization to improve SEO and search engine visibility.
+	 */
 	import { APP_CONFIG } from '$lib/constants/app';
 
 	const schema = {

@@ -1,91 +1,63 @@
-<svelte:head>
-	<title>Chi tiết Bài viết | Trung tâm Đào tạo Lái xe Quốc Thắng</title>
-</svelte:head>
+<script lang="ts">
+	import { NotionRenderer, OptimizedImage, ArrowLeft, Seo } from '$lib/components/common';
+	import type { PageData } from './$types';
+	import { formatDate } from '$lib/utils';
 
-<article class="mx-auto max-w-4xl px-4 py-16">
-	<header class="mb-12 text-center">
-		<div
-			class="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-bold text-primary"
+	const { data }: { data: PageData } = $props();
+	const news = $derived(data.news);
+	const blocks = $derived(data.blocks);
+</script>
+
+<Seo
+	title={news.name}
+	description={news.descriptions}
+	image={news.coverImage || undefined}
+	article={true}
+/>
+
+<article class="mx-auto max-w-4xl px-4 py-12">
+	<!-- Back Button -->
+	<div class="mb-10">
+		<a
+			href="/tin-tuc"
+			class="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-600 shadow-sm transition-all hover:border-primary/30 hover:bg-slate-50 hover:text-primary hover:shadow-md active:scale-95"
 		>
-			Mẹo thi cử
-		</div>
-		<h1 class="mb-6 text-4xl leading-tight font-black md:text-5xl">
-			600 câu hỏi lý thuyết lái xe: Cách học nhanh và nhớ lâu nhất
-		</h1>
-		<div class="flex items-center justify-center gap-4 font-medium text-slate-500">
-			<span>Quốc Thắng Editor</span>
-			<span>•</span>
-			<span>30 Tháng 12, 2025</span>
-		</div>
+			<ArrowLeft class="transition-transform group-hover:-translate-x-1" strokeWidth={2.5} />
+			Quay lại danh sách
+		</a>
+	</div>
+
+	<!-- News Header -->
+	<header class="mb-12">
+		{#if news.coverImage}
+			<OptimizedImage
+				src={news.coverImage}
+				alt={news.coverImageName || news.name}
+				class="mb-8 aspect-video w-full rounded-2xl shadow-lg"
+			/>
+		{/if}
+
+		<h1 class="text-3xl font-bold md:text-4xl lg:text-5xl">{news.name}</h1>
+
+		<h3 class="text-md mt-2 text-slate-500 italic">Ngày đăng: {formatDate(news.createdAt)}</h3>
 	</header>
 
-	<div
-		class="mb-12 flex aspect-video items-center justify-center overflow-hidden rounded-3xl bg-slate-100 font-bold text-slate-300"
-	>
-		Hình ảnh minh họa bài viết
-	</div>
+	<!-- News Content (Notion Blocks) -->
+	<NotionRenderer {blocks} />
 
-	<!-- Placeholder: Nội dung bài viết (Rich text) -->
-	<div class="prose prose-lg prose-headings:font-bold prose-a:text-primary max-w-none">
-		<p>
-			Việc ôn tập 600 câu hỏi lý thuyết đôi khi khiến học viên cảm thấy áp lực. Tuy nhiên, nếu nắm
-			vững một số mẹo cơ bản, bạn có thể dễ dàng vượt qua kỳ thi sát hạch với số điểm tuyệt đối...
-		</p>
-
-		<h2>1. Nhận diện các câu hỏi điểm liệt</h2>
-		<p>
-			Trong bộ đề 600 câu, có 60 câu hỏi về các tình huống mất an toàn giao thông nghiêm trọng. Nếu
-			sai một câu điểm liệt, bạn sẽ bị truất quyền thi sát hạch ngay lập tức...
-		</p>
-
-		<blockquote>
-			"Lời khuyên: Hãy dành ra ít nhất 15 phút mỗi ngày để luyện đề trên ứng dụng thi thử trực tuyến
-			của trung tâm."
-		</blockquote>
-
-		<h2>2. Một số mẹo ghi nhớ nhanh</h2>
-		<ul>
-			<li>Câu hỏi có từ "Bị nghiêm cấm": Luôn là đáp án đúng.</li>
-			<li>
-				Câu hỏi về hiệu lệnh của CSGT: 1 tay giơ lên chọn đáp án 3, 2 tay dang ngang chọn đáp án 4.
-			</li>
-			<li>... và nhiều mẹo khác sẽ được cập nhật liên tục.</li>
-		</ul>
-	</div>
-
-	<!-- Placeholder: Các bài viết liên quan -->
-	<footer class="mt-20 border-t pt-12">
-		<h3 class="mb-8 text-2xl font-bold">Bài viết liên quan</h3>
-		<div class="grid gap-8 md:grid-cols-2">
-			<a href="/tin-tuc/bai-1" class="group flex gap-4">
-				<div class="h-24 w-24 flex-shrink-0 rounded-xl bg-slate-100"></div>
-				<div>
-					<h4 class="line-clamp-2 font-bold transition-colors group-hover:text-primary">
-						Hướng dẫn thủ tục đổi bằng lái xe PET nhanh chóng
-					</h4>
-					<p class="mt-1 text-xs text-slate-400">25/12/2025</p>
-				</div>
+	<!-- Footer CTA -->
+	<footer class="mt-16 border-t border-slate-100 pt-12">
+		<div class="rounded-3xl bg-slate-50 p-8 text-center md:p-12">
+			<h2 class="mb-6 text-2xl font-bold md:text-3xl">Bạn muốn tìm hiểu thêm về các khóa học?</h2>
+			<p class="mb-8 text-slate-600">
+				Liên hệ với chúng tôi để được tư vấn miễn phí về lộ trình học lái xe phù hợp nhất.
+			</p>
+			<a
+				href="/lien-he"
+				class="inline-block rounded-full bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
+			>
+				Tư vấn ngay
 			</a>
-			<a href="/tin-tuc/bai-2" class="group flex gap-4">
-				<div class="h-24 w-24 flex-shrink-0 rounded-xl bg-slate-100"></div>
-				<div>
-					<h4 class="line-clamp-2 font-bold transition-colors group-hover:text-primary">
-						Lịch thi sát hạch lái xe tháng 01/2026 tại TP.HCM
-					</h4>
-					<p class="mt-1 text-xs text-slate-400">20/12/2025</p>
-				</div>
-			</a>
-		</div>
-
-		<!-- Placeholder: Mục bình luận (nếu có) -->
-		<div class="mt-20 rounded-2xl bg-slate-50 p-8">
-			<h3 class="mb-6 text-xl font-bold">Bình luận</h3>
-			<textarea
-				class="mb-4 w-full rounded-xl border bg-white p-4"
-				placeholder="Để lại bình luận của bạn..."
-				rows="3"
-			></textarea>
-			<button class="rounded-xl bg-primary px-8 py-3 font-bold text-white">Gửi bình luận</button>
 		</div>
 	</footer>
 </article>

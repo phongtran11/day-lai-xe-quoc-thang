@@ -14,3 +14,12 @@ export type WithoutChildren<T> = T extends { children?: any } ? Omit<T, 'childre
 export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>;
 
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?: U | null };
+
+export function formatDate(dateStr: string | null) {
+	if (!dateStr) return '';
+	return new Date(dateStr).toLocaleDateString('vi-VN', {
+		day: '2-digit',
+		month: '2-digit',
+		year: 'numeric'
+	});
+}

@@ -4,8 +4,7 @@
 	import Logo from './logo.svelte';
 	import FooterSection from './footer-section.svelte';
 	import ContactItem from './contact-item.svelte';
-	import MapFacade from '../ui/map-facade.svelte';
-	import OptimizedImage from '../ui/optimized-image.svelte';
+	import { MapFacade, OptimizedImage } from '../common';
 </script>
 
 <footer class="relative w-full bg-[#1a1a1a] font-sans text-white">

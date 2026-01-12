@@ -1,24 +1,19 @@
 import { APP_CONFIG } from '$lib/constants/app';
-import { getDriversCourses } from '$lib/notions';
+import { getCourses, getAllNews } from '$lib/notions';
 
 export const GET = async () => {
 	const domain = APP_CONFIG.contact.websiteLink;
 
 	const staticPages = ['', 'gioi-thieu', 'khoa-hoc', 'lien-he', 'tin-tuc'];
 
-	// Fetch dynamic courses from Notion
-	const courses = await getDriversCourses();
-	const coursePages = courses.map((course) => `khoa-hoc/${course.slug}`);
+	// Fetch dynamic data from Notion (fetch all for sitemap)
+	const [coursesRes, newsRes] = await Promise.all([
+		getCourses(undefined, undefined, true),
+		getAllNews(null, undefined, undefined, true)
+	]);
 
-	// TODO: Fetch news/posts from Notion once implemented
-	const postPages = [
-		'tin-tuc/bai-viet-so-1',
-		'tin-tuc/bai-viet-so-2',
-		'tin-tuc/bai-viet-so-3',
-		'tin-tuc/bai-viet-so-4',
-		'tin-tuc/bai-viet-so-5',
-		'tin-tuc/bai-viet-so-6'
-	];
+	const coursePages = coursesRes.items.map((course) => `khoa-hoc/${course.slug}`);
+	const postPages = newsRes.items.map((item) => `tin-tuc/${item.slug}`);
 
 	const pages = [...staticPages, ...coursePages, ...postPages];
 

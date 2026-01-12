@@ -1,10 +1,10 @@
-import { getCourseBySlug, getCourseBlocks, getDriversCourses } from '$lib/notions';
+import { getCourseBySlug, getCourseBlocks, getCourses } from '$lib/notions';
 import { error } from '@sveltejs/kit';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
 export const entries: EntryGenerator = async () => {
-	const courses = await getDriversCourses();
-	return courses.map((course) => ({
+	const coursesRes = await getCourses(undefined, undefined, true);
+	return coursesRes.items.map((course) => ({
 		slug: course.slug
 	}));
 };
@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	const course = await getCourseBySlug(params.slug);
 
 	if (!course) {
-		throw error(404, 'Course not found');
+		throw error(404, { message: 'Course not found' });
 	}
 
 	const blocks = await getCourseBlocks(course.id);

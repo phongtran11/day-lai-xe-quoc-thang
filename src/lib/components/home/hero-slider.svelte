@@ -1,11 +1,11 @@
 <script lang="ts">
-	import * as Carousel from '$lib/components/ui/carousel';
+	import { Carousel } from '$lib/components/ui';
 	import { NavButton } from '$lib/components/layout';
 	import { FilePen, ChevronRight } from '@lucide/svelte';
 	import { cn } from '$lib/utils';
 	import Autoplay from 'embla-carousel-autoplay';
 	import type { CarouselAPI } from '$lib/components/ui/carousel/context';
-	import OptimizedImage from '$lib/components/ui/optimized-image.svelte';
+	import { OptimizedImage } from '$lib/components/common';
 
 	const slides = [
 		{

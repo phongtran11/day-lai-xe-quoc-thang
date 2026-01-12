@@ -39,7 +39,12 @@
 		// Always return the original URL during local development
 		if (dev) return url;
 
-		if (url.includes('prod-files-secure.s3.us-west-2.amazonaws.com')) {
+		// Domains whitelisted in vercel.json for optimization
+		const whitelistedDomains = ['amazonaws.com'];
+
+		const shouldOptimize = whitelistedDomains.some((domain) => url.includes(domain));
+
+		if (shouldOptimize) {
 			return `/_vercel/image?url=${encodeURIComponent(url)}&w=${w}&q=${quality}`;
 		}
 		return url;
