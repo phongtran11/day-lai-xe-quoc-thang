@@ -13,7 +13,7 @@
 	let {
 		title = '',
 		description = APP_CONFIG.brand.description,
-		image = '/images/og-image.png', // Default OG image
+		image = '/logo.png', // Default OG image
 		article = false,
 		canonical = ''
 	}: Props = $props();
