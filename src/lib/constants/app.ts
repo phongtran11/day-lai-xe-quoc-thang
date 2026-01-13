@@ -9,19 +9,14 @@ export const APP_CONFIG = {
 		logoText: 'ĐTLX'
 	},
 	contact: {
-		hotline: '0944 117 414',
-		hotlineLink: 'tel:0944117414',
+		hotline: '0964 635 010',
+		hotlineLink: 'tel:0964635010',
 		website: 'day-lai-xe-quoc-thang.vercel.app',
 		websiteLink: 'https://day-lai-xe-quoc-thang.vercel.app',
 		locations: [
 			{
-				label: 'Cơ sở 1',
-				address:
-					'Số 028, ấp Tân Bình, xã Hòa Khánh Tây, huyện Đức Hòa, tỉnh Long An (đối diện trường cấp 2 Hậu Nghĩa và gần cầu Ba Sa)'
-			},
-			{
-				label: 'Cơ sở 2',
-				address: 'Số 736, ấp Bình Tiền 2, Đức Hòa Hạ, Đức Hòa, Long An'
+				label: 'Vị trí',
+				address: '54 Đường Số 12, Tân Thông Hội, Củ Chi, Thành phố Hồ Chí Minh'
 			}
 		]
 	},
@@ -36,13 +31,11 @@ export const APP_CONFIG = {
 		{ name: 'Facebook', icon: 'fb', color: 'bg-[#1877F2]', href: '#' },
 		{ name: 'TikTok', icon: 'tt', color: 'bg-black', href: '#' },
 		{ name: 'Zalo', icon: 'zl', color: 'bg-[#0068FF]', href: '#' },
-		{ name: 'Phone', icon: Phone, color: 'bg-[#E30613]', href: 'tel:0944117414' }
+		{ name: 'Phone', icon: Phone, color: 'bg-[#E30613]', href: 'tel:0964635010' }
 	],
 	maps: {
 		embedUrl:
-			'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50000.525547055726!2d106.4678887!3d10.8475556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ad54238e8276f%3A0x8683e60682979262!2zSMOyYSBLaMOhbmggVMOieSwgxJDhu6ljIEjDsmEsIExvbmcgQW4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1711123456789!5m2!1svi!2s',
-		title: 'Hòa Khánh Tây',
-		subtitle: 'Đức Hòa, Long An'
+			'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3917.24933585518!2d106.5155595!3d10.9445287!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310b2b48f26614f1%3A0xe5af4c275f77ca52!2zxJDDoG8gdOG6oW8gbMOhaSB4ZSBRdeG7kWMgVGjhuq9uZw!5e0!3m2!1svi!2s!4v1768318220348!5m2!1svi!2s'
 	},
 	background: {
 		footer: {

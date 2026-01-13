@@ -34,7 +34,7 @@
 
 <Seo
 	title="Khóa học Lái xe Ô tô & Xe máy"
-	description="Dịch vụ đào tạo lái xe uy tín tại Long An. Chiêu sinh các khóa học bằng lái A1, A2, B1, B2, C, D, E. Cam kết tỉ lệ đậu cao, học phí minh bạch."
+	description="Dịch vụ đào tạo lái xe uy tín tại TP. Hồ Chí Minh. Chiêu sinh các khóa học bằng lái A1, A2, B1, B2, C, D, E. Cam kết tỉ lệ đậu cao, học phí minh bạch."
 />
 
 <div class="container mx-auto max-w-[1200px] px-4 py-12">

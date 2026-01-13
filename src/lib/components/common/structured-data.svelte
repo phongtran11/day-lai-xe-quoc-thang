@@ -21,8 +21,8 @@
 		address: APP_CONFIG.contact.locations.map((loc) => ({
 			'@type': 'PostalAddress',
 			streetAddress: loc.address,
-			addressLocality: 'Đức Hòa',
-			addressRegion: 'Long An',
+			addressLocality: 'Củ Chi',
+			addressRegion: 'Thành phố Hồ Chí Minh',
 			addressCountry: 'VN'
 		})),
 		sameAs: APP_CONFIG.socialLinks.map((link) => link.href).filter((href) => href !== '#')
