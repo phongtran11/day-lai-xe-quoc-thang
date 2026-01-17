@@ -16,7 +16,7 @@ export const APP_CONFIG = {
 		locations: [
 			{
 				label: 'Vị trí',
-				address: '54 Đường Số 12, Tân Thông Hội, Củ Chi, Thành phố Hồ Chí Minh'
+				address: '54b đường số 12, Ấp Chánh 1, Xã Củ Chi, Thành phố Hồ Chí Minh'
 			}
 		]
 	},

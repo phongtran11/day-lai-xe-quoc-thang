@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { APP_CONFIG } from '$lib/constants/app';
-	import { Seo } from '$lib/components/common';
+	import { OptimizedImage, Seo } from '$lib/components/common';
 	import { LICENSE_CATEGORIES } from '$lib/constants/license';
 </script>
 
@@ -93,11 +93,7 @@
 				<div
 					class="group relative overflow-hidden rounded-3xl bg-slate-100 shadow-xl transition-all hover:shadow-2xl"
 				>
-					<div
-						class="flex aspect-video items-center justify-center bg-slate-200 font-medium text-slate-400 transition-colors group-hover:bg-slate-300"
-					>
-						Hình ảnh trung tâm đào tạo
-					</div>
+					<OptimizedImage src="/images/about/office-medium-v1.webp" alt="office" />
 					<div
 						class="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-6 text-white opacity-0 transition-opacity group-hover:opacity-100"
 					>
@@ -105,20 +101,22 @@
 					</div>
 				</div>
 				<div class="grid grid-cols-2 gap-6">
-					<div
-						class="group relative aspect-square overflow-hidden rounded-3xl bg-slate-100 shadow-lg"
-					>
+					<div class="group relative overflow-hidden rounded-3xl bg-slate-100 shadow-lg">
+						<OptimizedImage
+							class="h-full"
+							src="/images/about/office-medium-2-v1.webp"
+							alt="office"
+						/>
 						<div
-							class="flex h-full items-center justify-center bg-slate-200 p-4 text-center text-sm text-slate-400 transition-colors group-hover:bg-slate-300"
+							class="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-6 text-white opacity-0 transition-opacity group-hover:opacity-100"
 						>
 							Đội xe tập lái đời mới
 						</div>
 					</div>
-					<div
-						class="group relative aspect-square overflow-hidden rounded-3xl bg-slate-100 shadow-lg"
-					>
+					<div class="group relative overflow-hidden rounded-3xl bg-slate-100 shadow-lg">
+						<OptimizedImage class="h-full" src="/images/about/cars-medium-v1.webp" alt="office" />
 						<div
-							class="flex h-full items-center justify-center bg-slate-200 p-4 text-center text-sm text-slate-400 transition-colors group-hover:bg-slate-300"
+							class="absolute right-0 bottom-0 left-0 bg-linear-to-t from-black/60 to-transparent p-6 text-white opacity-0 transition-opacity group-hover:opacity-100"
 						>
 							Phòng học lý thuyết hiện đại
 						</div>

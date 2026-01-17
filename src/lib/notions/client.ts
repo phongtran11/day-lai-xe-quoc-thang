@@ -1,9 +1,8 @@
-import { Client, LogLevel, type DatabaseObjectResponse } from '@notionhq/client';
+import { Client, type DatabaseObjectResponse } from '@notionhq/client';
 import { NOTION_SECRET } from '$env/static/private';
 
 export const notion = new Client({
-	auth: NOTION_SECRET,
-	logLevel: LogLevel.DEBUG
+	auth: NOTION_SECRET
 });
 
 const databaseCache = new Map<string, DatabaseObjectResponse>();

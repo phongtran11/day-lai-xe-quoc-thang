@@ -8,7 +8,6 @@
 		placeholderImage?: string;
 		class?: string;
 	}
-
 	let { src, title = 'Google Map', class: className }: Props = $props();
 
 	let showMap = $state(false);
