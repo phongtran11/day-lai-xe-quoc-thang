@@ -6,6 +6,8 @@ export interface ContactSubmission {
 	phone: string;
 	message: string;
 	course: string;
+	is_consented: boolean;
+	consent_timestamp: string;
 }
 
 export const createContactSubmission = async (data: ContactSubmission) => {
@@ -47,6 +49,18 @@ export const createContactSubmission = async (data: ContactSubmission) => {
 						{
 							text: {
 								content: data.course
+							}
+						}
+					]
+				},
+				'Is Consented': {
+					checkbox: data.is_consented
+				},
+				'Consent Timestamp': {
+					rich_text: [
+						{
+							text: {
+								content: data.consent_timestamp
 							}
 						}
 					]

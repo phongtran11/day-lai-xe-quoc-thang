@@ -6,7 +6,8 @@ import { z } from 'zod';
 const contactSchema = z.object({
 	name: z.string().min(1, 'Vui lòng nhập họ tên'),
 	phone: z.string().regex(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, 'Vui lòng nhập số điện thoại hợp lệ'),
-	message: z.string().optional()
+	message: z.string().optional(),
+	consent: z.string().refine((val) => val === 'on', 'Vui lòng đồng ý với chính sách bảo mật')
 });
 
 export const actions: Actions = {
@@ -15,8 +16,9 @@ export const actions: Actions = {
 		const name = formData.get('name')?.toString();
 		const phone = formData.get('phone')?.toString();
 		const message = formData.get('message')?.toString();
+		const consent = formData.get('consent')?.toString();
 
-		const { error, data } = contactSchema.safeParse({ name, phone, message });
+		const { error, data } = contactSchema.safeParse({ name, phone, message, consent });
 		if (error) {
 			return fail(400, {
 				error: true,
@@ -31,7 +33,9 @@ export const actions: Actions = {
 				name: data.name,
 				phone: data.phone,
 				course: 'Nhập thủ công trên Notion',
-				message: data.message || 'Không có nội dung'
+				message: data.message || 'Không có nội dung',
+				is_consented: true,
+				consent_timestamp: new Date().toISOString()
 			});
 
 			return {

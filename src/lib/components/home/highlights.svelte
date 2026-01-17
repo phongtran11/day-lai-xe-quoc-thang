@@ -73,7 +73,7 @@
 			icon: ShieldCheck,
 			title: 'DỊCH VỤ HOÀN HẢO',
 			description:
-				'Hỗ trợ học viên một cách chu đáo nhất từ lúc đăng ký cho đến khi nhận bằng. Giải quyết mọi vấn đề của học viên.',
+				'Hỗ trợ học viên một cách tận tâm và chu đáo từ lúc đăng ký cho đến khi nhận bằng. Giải quyết mọi vấn đề của học viên.',
 			color: 'text-rose-500',
 			bgColor: 'bg-rose-50'
 		}

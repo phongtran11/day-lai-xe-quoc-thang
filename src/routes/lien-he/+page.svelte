@@ -5,6 +5,10 @@
 
 	let { form } = $props();
 	let loading = $state(false);
+	let isConsented = $state(false);
+	let name = $state('');
+	let phone = $state('');
+	let message = $state('');
 </script>
 
 <Seo title="Liên hệ" />
@@ -70,7 +74,7 @@
 							id="name"
 							name="name"
 							placeholder="Nguyễn Văn A"
-							value={form?.values?.name ?? ''}
+							bind:value={name}
 							class="w-full rounded-2xl border-none bg-slate-50 px-5 py-4 transition-all outline-none focus:ring-2 focus:ring-primary/20"
 						/>
 					</div>
@@ -83,7 +87,7 @@
 							id="phone"
 							name="phone"
 							placeholder="0901 234 567"
-							value={form?.values?.phone ?? ''}
+							bind:value={phone}
 							class="w-full rounded-2xl border-none bg-slate-50 px-5 py-4 transition-all outline-none focus:ring-2 focus:ring-primary/20"
 						/>
 					</div>
@@ -98,12 +102,30 @@
 							rows="4"
 							placeholder="Tôi muốn tư vấn khóa học B2..."
 							class="w-full rounded-2xl border-none bg-slate-50 px-5 py-4 transition-all outline-none focus:ring-2 focus:ring-primary/20"
-							>{form?.values?.message ?? ''}</textarea
-						>
+							bind:value={message}
+						></textarea>
 					</div>
+					<div class="flex items-start gap-3 py-2">
+						<input
+							type="checkbox"
+							id="consent"
+							name="consent"
+							onchange={(e) => (isConsented = e.currentTarget.checked)}
+							class="mt-1 h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary"
+						/>
+						<label for="consent" class="text-xs leading-relaxed text-slate-500">
+							Tôi đã đọc và đồng ý với <a
+								href="/chinh-sach-bao-mat"
+								target="_blank"
+								class="font-bold text-primary underline">Chính sách bảo mật</a
+							>
+							và xử lý dữ liệu cá nhân của {APP_CONFIG.brand.name}.
+						</label>
+					</div>
+
 					<button
 						type="submit"
-						disabled={loading}
+						disabled={loading || !isConsented}
 						class="w-full rounded-2xl bg-primary py-5 text-lg font-black text-white shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0"
 					>
 						{loading ? 'ĐANG GỬI...' : 'GỬI THÔNG TIN NGAY'}
@@ -112,7 +134,6 @@
 			</div>
 
 			<div class="space-y-12">
-				<!-- Placeholder: Thông tin liên hệ trực tiếp (Hotline, Email, Địa chỉ) -->
 				<div class="space-y-8">
 					{#each APP_CONFIG.contact.locations as loc}
 						<div class="flex items-start gap-6">

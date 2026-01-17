@@ -14,7 +14,7 @@
 			large: '/images/hero/slider-1-large-v1.webp',
 			title: 'Đào Tạo Lái Xe Chuyên Nghiệp',
 			description:
-				'Hỗ trợ học viên từ con số 0 đến khi nhận bằng. Cam kết tỉ lệ đậu cao nhất khu vực.',
+				'Hỗ trợ học viên từ con số 0 đến khi nhận bằng. Tỉ lệ đậu top đầu khu vực.',
 			cta: 'Xem khóa học',
 			href: '/khoa-hoc'
 		},

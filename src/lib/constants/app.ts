@@ -21,11 +21,10 @@ export const APP_CONFIG = {
 		]
 	},
 	policies: [
-		{ label: 'Chính sách dịch vụ', href: '#' },
-		{ label: 'Chính sách dạy lái xe', href: '#' },
-		{ label: 'Thông tin cần biết', href: '#' },
-		{ label: 'Chính sách thanh toán', href: '#' },
-		{ label: 'Chính sách hỗ trợ', href: '#' }
+		{ label: 'Điều khoản dịch vụ', href: '/dieu-khoan-dich-vu' },
+		{ label: 'Chính sách bảo mật', href: '/chinh-sach-bao-mat' },
+		{ label: 'Chính sách thanh toán', href: '/chinh-sach-thanh-toan' },
+		{ label: 'Thông tin cần biết', href: '/tin-tuc' }
 	],
 	socialLinks: [
 		{ name: 'Facebook', icon: 'fb', color: 'bg-[#1877F2]', href: '#' },
