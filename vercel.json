@@ -10,8 +10,13 @@
 			]
 		},
 		{
-			"source": "/(images|logo.png|favicon.png)",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+			"source": "/(images|logo.png|favicon.png|.*\\.(jpg|jpeg|png|webp|avif|svg|ico|gif))",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, stale-while-revalidate=86400"
+				}
+			]
 		},
 		{
 			"source": "/_app/immutable/(.*)",
@@ -19,14 +24,9 @@
 		}
 	],
 	"images": {
-		"sizes": [256, 384, 640, 750, 828, 1080, 1200],
-		"formats": ["image/avif", "image/webp"],
-		"remotePatterns": [
-			{
-				"protocol": "https",
-				"hostname": "prod-files-secure.s3.us-west-2.amazonaws.com"
-			}
-		],
-		"minimumCacheTTL": 3600
+		"sizes": [256, 384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+		"domains": ["prod-files-secure.s3.us-west-2.amazonaws.com"],
+		"minimumCacheTTL": 31536000,
+		"formats": ["image/avif", "image/webp"]
 	}
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { BlockObjectResponse } from '@notionhq/client';
 	import OptimizedImage from '$lib/components/common/optimized-image.svelte';
-	import NotionTable from './NotionTable.svelte';
+	import NotionTable from './notion-table.svelte';
 
 	let { blocks }: { blocks: BlockObjectResponse[] } = $props();
 

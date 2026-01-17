@@ -1,7 +1,11 @@
 <script lang="ts">
-	import { APP_CONFIG } from '$lib/constants/app';
 	import { OptimizedImage, Seo } from '$lib/components/common';
-	import { LICENSE_CATEGORIES } from '$lib/constants/license';
+	import { APP_CONFIG } from '$lib/constants/app';
+
+	const imageModules = import.meta.glob('$lib/assets/about/*.{avif,jpg,webp}', {
+		eager: true,
+		query: { enhanced: true }
+	});
 </script>
 
 <Seo title="Giới thiệu" description="Giới thiệu về Trung tâm Đào tạo Lái xe Quốc Thắng" />
@@ -125,43 +129,24 @@
 			</div>
 		</div>
 
-		<!-- New License Categories Section (Law 2025) -->
 		<section class="mt-24">
 			<div class="mb-12 text-center">
-				<h2 class="mb-4 text-3xl font-bold text-slate-900 md:text-5xl">
-					Hệ thống hạng Bằng lái xe (Luật 2025)
-				</h2>
+				<h2 class="mb-4 text-3xl font-bold text-slate-900 md:text-5xl">Thư viện hình ảnh</h2>
 				<div class="mx-auto mb-6 h-1.5 w-24 rounded-full bg-primary"></div>
 				<p class="mx-auto max-w-2xl text-lg text-slate-600">
-					Thông tin được cập nhật theo Luật Trật tự an toàn giao thông đường bộ 2024, có hiệu lực từ
-					ngày 01/01/2025.
+					Khám phá cơ sở vật chất, đội ngũ giáo viên và các hoạt động đào tạo thực tế tại trung tâm.
 				</p>
 			</div>
 
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{#each LICENSE_CATEGORIES as cat}
-					<div
-						class="group relative rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl"
-					>
-						<div
-							class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-2xl font-black text-white shadow-lg shadow-primary/30"
-						>
-							{cat.code}
-						</div>
-						<h3
-							class="mb-3 text-xl font-bold text-slate-900 transition-colors group-hover:text-primary"
-						>
-							{cat.title}
-						</h3>
-						<p class="text-sm leading-relaxed text-slate-500">
-							{cat.desc}
-						</p>
-						<a
-							href="/khoa-hoc"
-							class="mt-6 flex items-center text-xs font-bold text-primary opacity-0 transition-opacity group-hover:opacity-100"
-						>
-							XEM CHI TIẾT <span class="ml-2">→</span>
-						</a>
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+				{#each Object.entries(imageModules) as [path, module]}
+					<div class="aspect-auto overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
+						<enhanced:img
+							class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+							src={(module as any).default}
+							sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
+							alt="Hình ảnh thực tế tại Quốc Thắng"
+						/>
 					</div>
 				{/each}
 			</div>
@@ -173,18 +158,18 @@
 				<div class="relative z-10 flex flex-col items-center justify-between gap-10 md:flex-row">
 					<div class="max-w-2xl">
 						<h3 class="mb-4 text-3xl font-bold md:text-4xl">
-							Bạn chưa biết nên học hạng bằng nào?
+							Sẵn sàng để bắt đầu hành trình lái xe an toàn?
 						</h3>
 						<p class="text-lg text-slate-400">
-							Hãy liên hệ ngay để chuyên viên tư vấn chi tiết về độ tuổi, yêu cầu sức khỏe và lộ
-							trình thi sát hạch phù hợp nhất với nhu cầu của bạn.
+							Liên hệ ngay để nhận tư vấn chi tiết về các khóa học, học phí trọn gói và lộ trình thi
+							sát hạch phù hợp nhất với bạn.
 						</p>
 					</div>
 					<a
 						href="/lien-he"
 						class="rounded-full bg-primary px-10 py-5 text-lg font-bold whitespace-nowrap text-white shadow-lg shadow-primary/30 transition-all hover:scale-105 hover:bg-primary/90 active:scale-95"
 					>
-						Tư vấn miễn phí
+						Liên hệ ngay
 					</a>
 				</div>
 			</div>
