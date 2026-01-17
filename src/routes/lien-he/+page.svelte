@@ -1,6 +1,10 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { APP_CONFIG } from '$lib/constants/app';
 	import { MapFacade, Seo } from '$lib/components/common';
+
+	let { form } = $props();
+	let loading = $state(false);
 </script>
 
 <Seo title="Liên hệ" />
@@ -13,19 +17,60 @@
 		</p>
 
 		<div class="grid gap-16 lg:grid-cols-2">
-			<!-- Placeholder: Form gửi thông tin (Họ tên, SĐT, Nội dung) -->
+			<!-- Form gửi thông tin -->
 			<div
 				class="rounded-3xl border border-slate-100 bg-white p-8 shadow-xl shadow-slate-200/50 md:p-10"
 			>
 				<h2 class="mb-8 text-2xl font-bold">Gửi tin nhắn cho chúng tôi</h2>
-				<form class="space-y-6">
+
+				{#if form?.success}
+					<div class="mb-8 rounded-2xl bg-green-50 p-6 text-green-700">
+						<p class="font-bold">Gửi thành công!</p>
+						<ul>
+							{#each form.messages as message (message)}
+								<li>{message}</li>
+							{/each}
+						</ul>
+					</div>
+				{:else if form?.status == 400}
+					<div class="mb-8 rounded-2xl bg-red-50 p-6 text-yellow-700">
+						<ul>
+							{#each form.messages as message (message)}
+								<li>{message}</li>
+							{/each}
+						</ul>
+					</div>
+				{:else if form?.error}
+					<div class="mb-8 rounded-2xl bg-red-50 p-6 text-red-700">
+						<p class="font-bold">Lỗi!</p>
+						<ul>
+							{#each form.messages as message (message)}
+								<li>{message}</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+
+				<form
+					method="POST"
+					use:enhance={() => {
+						loading = true;
+						return async ({ update }) => {
+							loading = false;
+							await update();
+						};
+					}}
+					class="space-y-6"
+				>
 					<div>
 						<label class="mb-2 block text-sm font-bold text-slate-700" for="name">Họ và tên *</label
 						>
 						<input
 							type="text"
 							id="name"
+							name="name"
 							placeholder="Nguyễn Văn A"
+							value={form?.values?.name ?? ''}
 							class="w-full rounded-2xl border-none bg-slate-50 px-5 py-4 transition-all outline-none focus:ring-2 focus:ring-primary/20"
 						/>
 					</div>
@@ -36,26 +81,32 @@
 						<input
 							type="tel"
 							id="phone"
+							name="phone"
 							placeholder="0901 234 567"
+							value={form?.values?.phone ?? ''}
 							class="w-full rounded-2xl border-none bg-slate-50 px-5 py-4 transition-all outline-none focus:ring-2 focus:ring-primary/20"
 						/>
 					</div>
+
 					<div>
 						<label class="mb-2 block text-sm font-bold text-slate-700" for="message"
 							>Nội dung tư vấn</label
 						>
 						<textarea
 							id="message"
+							name="message"
 							rows="4"
 							placeholder="Tôi muốn tư vấn khóa học B2..."
 							class="w-full rounded-2xl border-none bg-slate-50 px-5 py-4 transition-all outline-none focus:ring-2 focus:ring-primary/20"
-						></textarea>
+							>{form?.values?.message ?? ''}</textarea
+						>
 					</div>
 					<button
 						type="submit"
-						class="w-full rounded-2xl bg-primary py-5 text-lg font-black text-white shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95"
+						disabled={loading}
+						class="w-full rounded-2xl bg-primary py-5 text-lg font-black text-white shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0"
 					>
-						GỬI THÔNG TIN NGAY
+						{loading ? 'ĐANG GỬI...' : 'GỬI THÔNG TIN NGAY'}
 					</button>
 				</form>
 			</div>
