@@ -49,6 +49,7 @@
 	"dependencies": {
 		"@notionhq/client": "^5.6.0",
 		"@sveltejs/adapter-vercel": "^6.2.0",
+		"@vercel/analytics": "^1.6.1",
 		"embla-carousel-auto-scroll": "^8.6.0",
 		"embla-carousel-autoplay": "^8.6.0",
 		"lucide-svelte": "^0.562.0",
