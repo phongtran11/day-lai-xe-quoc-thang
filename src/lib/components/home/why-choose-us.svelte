@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import { OptimizedImage } from '$lib/components/common';
+	import whyChooseUsImage from '$lib/assets/about/z7425272318882_201f10fe9d76d125cfcf2e3989ce4ec7.jpg?enhanced';
 
 	const stats = [
 		{ value: '15.000+', label: 'HỌC VIÊN ĐÃ CÓ BẰNG' },
@@ -11,18 +11,15 @@
 </script>
 
 <section
-	class={cn(
-		'relative h-[500px] w-full items-center justify-center overflow-hidden px-4 py-20 md:flex'
-	)}
+	class={cn('relative  w-full items-center justify-center overflow-hidden px-4 py-20 md:flex')}
 >
 	<!-- Background Image -->
-	<div class="absolute inset-0 z-0">
-		<OptimizedImage
-			small="/images/home/why-choose-us-bg-small-v1.webp"
-			medium="/images/home/why-choose-us-bg-medium-v1.webp"
-			large="/images/home/why-choose-us-bg-large-v1.webp"
+	<div class="absolute inset-0 z-0 aspect-auto overflow-hidden">
+		<enhanced:img
+			src={whyChooseUsImage}
+			sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 			alt="Vì sao chọn chúng tôi"
-			class="h-full w-full object-cover opacity-30 grayscale"
+			class="h-full w-full object-cover object-center"
 		/>
 		<div class="absolute inset-0 bg-black/60"></div>
 	</div>
@@ -47,6 +44,19 @@
 					</div>
 				</div>
 			{/each}
+		</div>
+
+		<div class="my-8 h-[300px] md:h-[563px]">
+			<iframe
+				width="100%"
+				height="100%"
+				src="https://www.youtube.com/embed/UR1z2owLdvM?autoplay=1&mute=1&playlist=UR1z2owLdvM&loop=1&si=ReijvTPDn1PUGIsw"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+			></iframe>
 		</div>
 	</div>
 </section>
